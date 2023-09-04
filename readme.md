@@ -9,5 +9,5 @@ Développeur Full-Stack mais aussi, Electrotechnicien Frigoriste réalisant des 
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)cls
+[MIT](https://choosealicense.com/licenses/mit/)
 
