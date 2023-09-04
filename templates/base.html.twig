@@ -1,16 +1,93 @@
-<!DOCTYPE html>
-<html>
+{#{% set route_name = app.request.attributes.get('_route') %}#}
+{% include "_partials/doctype.html.twig" %}
+
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+        <title>{% block title %}{% endblock %} | BE SOFT</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Application de gestion pour Bureau d'études" name="description" />
+        <meta content="SudWeb-Factory" name="Guillaume COUGET" />
 
-        {% block javascripts %}
-        {% endblock %}
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{{ asset('assets/images/favicon-scs.ico') }}">
+
+        <!-- jsvectormap css -->
+        <link href="{{ asset('assets/libs/jsvectormap/css/jsvectormap.min.css') }}" rel="stylesheet" type="text/css" />
+        <!--Swiper slider css-->
+        <link href="{{ asset('assets/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
+        
+        <!-- Layout config Js -->
+        <script src="{{ asset('assets/js/layout.js') }}"></script>
+        <!-- Bootstrap Css -->
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- custom Css-->
+        <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+
+            <!--datatable css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+    <!--datatable responsive css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+
+        
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+
     </head>
     <body>
-        {% block body %}{% endblock %}
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            {{ include('_partials/menu.html.twig') }}
+
+            <div class="main-content">
+
+                <div class="page-content">
+                    <div class="container-fluid">
+
+                    {% block body %}{% endblock %}
+
+                    </div>
+                    <!-- container-fluid -->
+                </div>
+                <!-- End Page-content -->
+
+                {{ include('_partials/footer.html.twig') }}
+                
+            </div>
+            <!-- end main content-->
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        {{ include('_partials/customizer.html.twig') }}
+
+        {{ include('_partials/vendor-scripts.html.twig') }}
+
+        <!-- apexcharts -->
+        <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+        <!-- Vector map-->
+        <script src="{{ asset('assets/libs/jsvectormap/js/jsvectormap.min.js') }}"></script>
+        <script src="{{ asset('assets/libs/jsvectormap/maps/world-merc.js') }}"></script>
+        <!--Swiper slider js-->
+        <script src="{{ asset('assets/libs/swiper/swiper-bundle.min.js') }}"></script>
+        <!-- Dashboard init -->
+        <script src="{{ asset('assets/js/pages/dashboard-ecommerce.init.js') }}"></script>
+
+        <!-- team init js -->
+        <script src="assets/js/pages/team.init.js"></script>
+
+        <!--datatable jquery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- App js -->
+        <script src="{{ asset('assets/js/app.js') }}"></script>
+
     </body>
 </html>

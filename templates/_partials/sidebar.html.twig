@@ -1,0 +1,168 @@
+<!-- ========== App Menu ========== -->
+<div class="app-menu navbar-menu">
+    <!-- LOGO -->
+    <div class="navbar-brand-box">
+        <!-- Dark Logo-->
+        <a href="{{ path('app_main') }}" class="logo logo-dark">
+            <span class="logo-sm">
+                <img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">
+            </span>
+            <span class="logo-lg">
+                <img src="{{ asset('assets/images/logo-dark.png') }}" alt="" height="17">
+            </span>
+        </a>
+        <!-- Light Logo-->
+        <a href="{{ path('app_main') }}" class="logo logo-light">
+            <span class="logo-sm">
+                {#<img src="{{ asset('assets/images/logo-sm.png') }}" alt="" height="22">#}
+                <img src="{{ asset('assets/images/logo-sm-eratis.png') }}" alt="" height="45">
+            </span>
+            <span class="logo-lg">
+                {#<img src="{{ asset('assets/images/logo-light.png') }}" alt="" height="17">#}
+                <img src="{{ asset('assets/images/logo-light-eratis.png') }}" alt="" height="50">
+            </span>
+        </a>
+        <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover" id="vertical-hover">
+            <i class="ri-record-circle-line"></i>
+        </button>
+    </div>
+
+    <div id="scrollbar">
+        <div class="container-fluid">
+
+            <div id="two-column-menu"></div>
+            <ul class="navbar-nav" id="navbar-nav">
+
+                {############### ADMIN ################}
+                <li class="menu-title"><span data-key="t-admin">Admin</span></li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="">
+                        <i class="ri-honour-line"></i> <span data-key="t-">Administration</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#">
+                        <i class="ri-honour-line"></i> <span data-key="t-">Utilisateurs</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="">
+                        <i class="ri-honour-line"></i> <span data-key="t-">Fluides</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarSynthese" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSynthese">
+                        <i class="ri-list-check-2"></i>
+                        <span data-key="t-">Synthèses</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarSynthese">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-key="t-"> Liste </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-key="t-"> Liste 2 </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                {################ RH ##################}
+                <li class="menu-title"><span data-key="t-rh">RH</span></li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarCollaborateur" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarCollaborateur">
+                        <i class="ri-user-line"></i>
+                        <span data-key="t-">Collaborateurs</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarCollaborateur">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-key="t-"> Liste </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                {############ RESPONSABLE #############}
+                <li class="menu-title"><span data-key="t-resp">Responsable</span></li>
+
+                {############## PROJETS ###############}
+                <li class="menu-title"><span data-key="t-project">Projets</span></li>
+                        
+                {############## CALCULS ###############}
+                <li class="menu-title"><span data-key="t-project">Calculs</span></li>
+
+                {############## DOCUMENTS ###############}
+                <li class="menu-title"><span data-key="t-project">Documents</span></li>
+
+                {############### MENU #################}
+                <li class="menu-title"><span data-key="t-menu">Menu</span></li>
+
+                {### ANNUAIRE ###}
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#Annuaire" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="Annuaire">
+                        <i class="ri-contacts-book-line"></i>
+                        <span data-key="t-">Annuaire</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="Annuaire">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="" class="nav-link" data-key="t-"> Interne </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link" data-key="t-"> Fournisseurs </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link" data-key="t-"> Client </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                {### DASHBOARD ###}
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="sidebarDashboards">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-key="t-analytics"> Analytics </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-key="t-crm"> CRM </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/" class="nav-link" data-key="t-ecommerce"> Ecommerce </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-key="t-crypto"> Crypto </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-key="t-projects"> Projects </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-key="t-nft"> NFT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link" data-key="t-job">Job</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- Sidebar -->
+    </div>
+
+    <div class="sidebar-background"></div>
+</div>
+<!-- Left Sidebar End -->
+<!-- Vertical Overlay-->
+<div class="vertical-overlay"></div>
