@@ -24,19 +24,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private array $roles = [];
     
-    public function __construct()
-    {
-        $this->created_at = new \DateTimeImmutable();
-    }
-    
     /**
      * @var string The hashed password
      */
     #[ORM\Column]
     private ?string $password = null;
-
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    
+    public function __construct()
+    {
+        $this->created_at = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {

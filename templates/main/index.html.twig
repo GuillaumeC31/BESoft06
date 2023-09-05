@@ -434,44 +434,123 @@
 				</div>
 
 				<div class="col-xl-4">
-					<div class="card card-height-100">
-						<div class="card-header align-items-center d-flex">
-							<h4 class="card-title mb-0 flex-grow-1">Sales by Locations</h4>
-							<div class="flex-shrink-0">
-								<button type="button" class="btn btn-soft-primary btn-sm">
-									Export Report
-								</button>
-							</div>
-						</div>
+
+					<!-- FLUIDES -->
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title mb-0">Data Attributes + Custom</h4>
+						</div><!-- end card header -->
 
 						<div class="card-body">
-
-							<div id="sales-by-locations" data-colors='["--vz-light", "--vz-success", "--vz-primary"]' style="height: 269px" dir="ltr"></div>
-
-							<div class="px-2 py-2 mt-1">
-								<p class="mb-1">Canada
-									<span class="float-end">75%</span>
-								</p>
-								<div class="progress mt-2" style="height: 6px;">
-									<div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="75"></div>
+							<p class="text-muted">Use data attributes and other custom attributes as keys</p>
+							<div id="users">
+								<div class="row mb-2">
+									<div class="col">
+										<div>
+											<input class="search form-control" placeholder="Search" />
+										</div>
+									</div>
+									<div class="col-auto">
+										<button class="btn btn-light sort" data-sort="name">
+											Sort by name
+										</button>
+									</div>
 								</div>
 
-								<p class="mt-3 mb-1">Greenland
-									<span class="float-end">47%</span>
-								</p>
-								<div class="progress mt-2" style="height: 6px;">
-									<div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 47%" aria-valuenow="47" aria-valuemin="0" aria-valuemax="47"></div>
-								</div>
+								<div data-simplebar style="height: 242px;" class="mx-n3">
+									<ul class="list list-group list-group-flush mb-0">
+										{% for fluides in fluide %}
+											
+											<li class="list-group-item" data-id="1">
+												<div class="d-flex">
+													<div class="flex-grow-1">
+														<h5 class="fs-13 mb-1"><a href="#" class="link name text-body"> {{ fluides.fluide }} </a></h5>
+														<p class="born timestamp text-muted mb-0" data-timestamp="12345"> {{ fluides.date|date('Y') }} </p>
+													</div>
+													<div class="flex-shrink-0">
+														<div>
+															<img class="image avatar-xs rounded-circle" alt="" src="assets/images/users/avatar-1.jpg">
+															<p> GWP <b> {{ fluides.gwp }} </b> </p>
+														</div>
+													</div>
+												</div>
+											</li>
 
-								<p class="mt-3 mb-1">Russia
-									<span class="float-end">82%</span>
-								</p>
-								<div class="progress mt-2" style="height: 6px;">
-									<div class="progress-bar progress-bar-striped bg-primary" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="82"></div>
+										{% endfor %}
+									</ul>
+									<!-- end ul list -->
 								</div>
 							</div>
-						</div>
+						</div><!-- end card body -->
+					</div>
+				
+				</div>
 
+				<div class="col-xl-12">
+					<div class="card">
+						<div class="card-header">
+							<h5 class="card-title mb-0">Basic Datatables</h5>
+						</div>
+						<div class="card-body">
+							<table id="example" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
+								<thead>
+									<tr>
+										<th data-ordering="false">Fluide</th>
+										<th data-ordering="false">GWP</th>
+										<th data-ordering="false">Type</th>
+										<th data-ordering="false">Classe</th>
+										<th data-ordering="false">Statut</th>
+										<th data-ordering="false">Date Arrêt Fluide</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+								{% for fluides in fluide %}
+									<tr>
+										<td> {{ fluides.fluide }} </td>
+
+										<td>
+										{% if fluides.gwp <= 600 %}
+											<div class="text-success"><b> {{ fluides.gwp }} </b></div>
+										{% elseif fluides.gwp > 600 and fluides.gwp < 1500 %}
+											<div class="text-secondary"><b> {{ fluides.gwp }} </b></div>
+										{% elseif fluides.gwp > 1500 %}
+											<div class="text-danger"><b> {{ fluides.gwp }} </b></div>
+										{% endif %}
+										
+										 </td>
+										
+										<td> {{ fluides.type }} </td>
+										<td> {{ fluides.classe }} </td>
+										<td> 
+										{% if fluides.statut == 1 %}
+											<span class="badge badge-label bg-success"><i class="mdi mdi-circle-medium"></i> Valide</span>
+										{% else %}
+											<span class="badge badge-label bg-danger"><i class="mdi mdi-circle-medium"></i> Interdit</span>
+										{% endif %}
+										</td>
+										<td> {{ fluides.date|date('Y') }} </td>
+										<td>
+											<div class="dropdown d-inline-block">
+												<button class="btn btn-soft-secondary btn-sm dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+													<i class="ri-more-fill align-middle"></i>
+												</button>
+												<ul class="dropdown-menu dropdown-menu-end">
+													<li><a href="#!" class="dropdown-item"><i class="ri-eye-fill align-bottom me-2 text-muted"></i> View</a></li>
+													<li><a class="dropdown-item edit-item-btn"><i class="ri-pencil-fill align-bottom me-2 text-muted"></i> Edit</a></li>
+													<li>
+														<a class="dropdown-item remove-item-btn">
+															<i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i> Delete
+														</a>
+													</li>
+												</ul>
+											</div>
+										</td>
+									</tr>
+								{% endfor %}
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 
