@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fluide{% endblock %}
+
+{% block body %}
+    <h1>Fluide</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ fluide.id }}</td>
+            </tr>
+            <tr>
+                <th>Fluide</th>
+                <td>{{ fluide.fluide }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ fluide.slug }}</td>
+            </tr>
+            <tr>
+                <th>Gwp</th>
+                <td>{{ fluide.gwp }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ fluide.type }}</td>
+            </tr>
+            <tr>
+                <th>Classe</th>
+                <td>{{ fluide.classe }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ fluide.statut ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ fluide.date ? fluide.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fluide_index') }}">back to list</a>
+
+    <a href="{{ path('app_fluide_edit', {'id': fluide.id}) }}">edit</a>
+
+    {{ include('fluide/_delete_form.html.twig') }}
+{% endblock %}

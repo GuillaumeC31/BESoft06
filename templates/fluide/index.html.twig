@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fluide index{% endblock %}
+
+{% block body %}
+    <h1>Fluide index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fluide</th>
+                <th>Slug</th>
+                <th>Gwp</th>
+                <th>Type</th>
+                <th>Classe</th>
+                <th>Statut</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fluide in fluides %}
+            <tr>
+                <td>{{ fluide.id }}</td>
+                <td>{{ fluide.fluide }}</td>
+                <td>{{ fluide.slug }}</td>
+                <td>{{ fluide.gwp }}</td>
+                <td>{{ fluide.type }}</td>
+                <td>{{ fluide.classe }}</td>
+                <td>{{ fluide.statut ? 'Yes' : 'No' }}</td>
+                <td>{{ fluide.date ? fluide.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_fluide_show', {'id': fluide.id}) }}">show</a>
+                    <a href="{{ path('app_fluide_edit', {'id': fluide.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_fluide_new') }}">Create new</a>
+{% endblock %}
