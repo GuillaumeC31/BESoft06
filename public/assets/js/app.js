@@ -59,7 +59,7 @@ File: Main Js File
 		language == null ? setLanguage(default_lang) : false;
 		var request = new XMLHttpRequest();
 		// Instantiating the request object
-		request.open("GET", "assets/lang/" + language + ".json");
+		request.open("GET", "{{ asset('assets/lang/" + language + ".json') }}");
 		// Defining event listener for readystatechange event
 		request.onreadystatechange = function () {
 			// Check if the request is compete and was successful
